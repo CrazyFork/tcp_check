@@ -11,7 +11,7 @@ using namespace v8;
 
 #include "tcp-checker.cc"
 
-#define STR(s) Nan::New(s).ToLocalChecked()
+#define STR(s) Nan::New(s).ToLocalChecked()//:?
 
 void tcpCheck(const FunctionCallbackInfo<Value>& args) {
 

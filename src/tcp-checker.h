@@ -4,9 +4,17 @@ class TcpChecker {
 
     // Enable linger and set linger_time to 0
     // socket will skip TIME_WAIT state, and send a RST to replace FIN
+
+    // https://msdn.microsoft.com/en-us/library/windows/desktop/ms739165(v=vs.85).aspx
+    // linger options value defination.
     struct linger so_linger = { 1, 0 };
 
     // I want to set handshaking timeout with 1 second, but :joy:
+
+    // http://www.skrenta.com/rt/man/getsockopt.2.html
+    // It returns a struct timeval parameter with the  number  of
+    // seconds  and  microseconds  used to limit waits for output
+    //    operations to complete. 
     struct timeval send_tv = { 1, 0 };
     struct timeval rcv_tv = { 1, 0 };
 
